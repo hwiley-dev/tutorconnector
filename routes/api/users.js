@@ -3,25 +3,22 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
-const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+
+const User = require('../../models/User');
 
 
 // @route   POST api/
 // @desc    Register User
 // @access  Public
-
 router.post(
     '/',
     [
-        check('name', 'Name is required!')
-        .not()
-        .isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
         check(
             'password',
-            'Please enter a password with 6 or more characters'
+            'Password Required'
             ).isLength({ min: 6 })
     ],
   async  (req,res) => {
