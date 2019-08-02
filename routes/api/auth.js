@@ -27,15 +27,13 @@ router.get('/', auth, async (req,res) =>  {
 // @desc    Authenticate & Get token
 // @access  Public
 router.post(
-    'api/auth',
+    '/',
     [
-        check('name', 'Name is required!')
-        .not()
-        .isEmpty(),
+        
         check('email', 'Please include a valid email').isEmail(),
         check(
             'password',
-            'Please required'
+            'Password required'
             ).exists()
     ],
   async  (req,res) => {
@@ -65,13 +63,6 @@ if (!isMatch){
     .status(400)
     .json({errors:[{ msg: 'Invalid Credentials'}]})
 }
-// Getting user gravatar
-const avatar = gravatar.url(email, {
-    s: '200', // sizing of avatar
-    r: 'pg', // rating (prevents nudity)
-    d: 'mm' // default image
-})
-
 
 
 const payload = {
