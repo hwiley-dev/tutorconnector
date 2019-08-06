@@ -36,7 +36,7 @@ const { name, email, password } = req.body
 // Check if email exists, if so send 400 error
 try { 
 
-let user = await User.findOne({ email});
+let user = await User.findOne({ email });
 
 if(user) { 
     return res.status(400).json({ errors: [{ msg: 'User already exists'}]});
@@ -64,7 +64,7 @@ const salt = await bcrypt.genSalt(10);
 // Hashbrowns and salt, no ketchup
 user.password = await bcrypt.hash(password, salt);
 
-await user.save()
+await user.save() // await saving until jwt signed
 
 const payload = {
     user: {
