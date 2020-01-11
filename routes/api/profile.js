@@ -78,7 +78,6 @@ if (skills) {
     profileFields.skills = skills.split(',').map(skill => skill.trim());
 }
 
-// Problem with this POST route is within this try-catch block (line 81-115)
 // Build social object 
 profileFields.social = {};
 if (linkedin) profileFields.social.linkedin = linkedin;
@@ -217,11 +216,11 @@ async (req, res ) => {
         description
     }
     
+    
     try {
         const profile = await Profile.findOne({ user: req.user.id });
         
         profile.experience.unshift(newExp);
-        
         await profile.save();
         
         
