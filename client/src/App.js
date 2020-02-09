@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Login from './components/auth/Login'
 import Register from './components/layout/Register'
 import Landing from './components/layout/Landing'
+import ProfileBrowser from './components/layout/ProfileBrowser'
 import './App.css';
 
 const App = () =>  ( 
@@ -13,6 +14,7 @@ const App = () =>  (
     <Route exact path='/' component={Landing} />
     <section className="container">
       <Switch>
+        <Route exact path='/profiles/' component={ProfileBrowser} />
         <Route exact path='/register/' component={Register} />
         <Route exact path='/login/' component={Login} />
       </Switch> 
