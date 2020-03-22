@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const Landing = () => {
+const Landing = () => {
     return (
         <section className="landing">
       <div className="dark-overlay">
@@ -8,15 +9,10 @@ export const Landing = () => {
           <h1 className="x-large">Tutor Connector</h1>
           <p className="lead">
             Create a profile, share posts and participate in discussions with other students and tutors
-            {/* <ul>
-            <li> Share Teaching Approach</li>
-            <li> Find Work as a Tutor</li>
-            <li> Find a Tutor</li>
-            </ul> */}
           </p>
           <div className="buttons">
-            <a href="register.html" className="btn btn-primary">Sign Up</a>
-            <a href="login.html" className="btn btn-light">Login</a>
+            <Link to="/register" className="btn btn-primary">Sign Up</Link>
+            <Link to="/login" className="btn btn-light">Login</Link>
           </div>
         </div>
       </div>
