@@ -13,7 +13,7 @@ const Register = () => {
 const { name, email, password, password2 } = formData
 
 const onChange = e => 
-setFormData({ ...formData, [e.target.name] : e.target.value})
+setFormData({ ...formData, [e.target.name]: e.target.value})
 
 const onSubmit = async e  => {
   e.preventDefault();
@@ -21,27 +21,27 @@ const onSubmit = async e  => {
       console.log("Focus, passwords must match.")
     } else {
       console.log('SUCCESS')
-      // const newUser = {
-      //   name,
-      //   email,
-      //   password
-      // }
+      const newUser = {
+        name,
+        email,
+        password
+      }
 
-      // try {
-      //   const config = {
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     }
-      //   }
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
 
-      //   const body = JSON.stringify(newUser);
+        const body = JSON.stringify(newUser);
 
-      //   const res = await axios.post('/api/users', body, config);
-      //   console.log(res);
+        const res = await axios.post('/api/users', body, config);
+        console.log(res.data);
 
-      // } catch (err) {
-      //   console.error(err.response.data)
-      // }
+      } catch (err) {
+        console.error(err.response.data)
+      }
     } 
 };
 
@@ -58,7 +58,7 @@ const onSubmit = async e  => {
             name="name"
             value={name}
             onChange={e => onChange(e)} 
-            required />
+             required />
           </div>
           <div className="form-group">
             <input 
