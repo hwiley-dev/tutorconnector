@@ -4,20 +4,19 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
     const [formData, setFormData ] = useState({ 
-        name: '',
         email: '',
         password: '',
 });
 
-const { name, email, password } = formData
+const { email, password } = formData
 
 const onChange = e => 
-setFormData({ ...formData, [e.target.name] : e.target.value})
+setFormData({ ...formData, [e.target.name]: e.target.value})
 
 const onSubmit = async e  => {
   e.preventDefault();
    
-      console.log('SUCCESS')
+      console.log('SUCCESSFUL LOGIN')
    
 };
 
@@ -61,7 +60,7 @@ const onSubmit = async e  => {
           <input type="submit" className="btn btn-primary" value="Login" />
         </form>
         <p className="my-1">
-          Don't have an account? <Link to='/login'>Sign Up</Link>
+          Don't have an account? <Link to='/register'>Sign Up</Link>
         </p>
       </Fragment>
     )
