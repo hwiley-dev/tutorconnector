@@ -1,3 +1,33 @@
+// EXAMPLE POST REQUEST SUCCESSFULLY PUSHING TO MONGODB (in Register.js file, onSubmit fn)
+____________________________________
+  const newUser = {
+        name,
+        email,
+        password
+      }
+
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+
+        const body = JSON.stringify(newUser);
+
+        
+        const res = await axios.post('/api/users', body, config);
+        console.log(res.data);
+
+      } catch (err) {
+        console.error(err.response.data)
+      }
+
+____________________________________________________________
+
+
+REACT APP INFO
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

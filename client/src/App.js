@@ -5,9 +5,14 @@ import Login from './components/auth/Login'
 import Register from './components/layout/Register'
 import Landing from './components/layout/Landing'
 import ProfileBrowser from './components/layout/ProfileBrowser'
+// Redux Provider
+import { Provider } from 'react-redux';
+import store from './store';
+
 import './App.css';
 
 const App = () =>  ( 
+<Provider store={store} >  
 <Router>
   <Fragment>
     <Navbar />
@@ -21,5 +26,6 @@ const App = () =>  (
     </section>
   </Fragment>
 </Router>
+</Provider>
 );
 export default App;

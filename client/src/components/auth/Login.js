@@ -22,18 +22,9 @@ const onSubmit = async e  => {
 
     return (
     <Fragment>
-        <h1 className="large text-primary">Sign Up</h1>
+        <h1 className="large text-primary">Sign In</h1>
         <p className="lead"><i className="fas fa-user"></i> Sign In to Your Account</p>
         <form className="form" onSubmit ={ e => onSubmit(e)} >
-          <div className="form-group">
-            <input 
-            type="text" 
-            placeholder="Name" 
-            name="name"
-            value={name}
-            onChange={e => onChange(e)} 
-            required />
-          </div>
           <div className="form-group">
             <input 
               type="email" 
@@ -41,10 +32,6 @@ const onSubmit = async e  => {
               value={email}
               onChange={e => onChange(e)}
               name="email" />
-            <small className="form-text"
-              >This site uses Gravatar so if you want a profile image, use a
-              Gravatar email</small
-            >
           </div>
           <div className="form-group">
             <input
