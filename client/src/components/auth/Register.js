@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import {setAlert} from '../../actions/alert'
 
-const Register = () => {
+const Register = (props) => {
     const [formData, setFormData ] = useState({ 
         name: '',
         email: '',
@@ -17,13 +19,12 @@ setFormData({ ...formData, [e.target.name]: e.target.value})
 const onSubmit = async e  => {
   e.preventDefault();
     if(password !== password2) {
-      console.log("Focus, passwords must match.")
+      props.setAlert("Focus, passwords must match.")
     } else {
       console.log('SUCCESS')
     
     } 
 };
-
 
     return (
     <Fragment>
@@ -48,8 +49,7 @@ const onSubmit = async e  => {
               name="email" />
             <small className="form-text"
               >This site uses Gravatar so if you want a profile image, use a
-              Gravatar email</small
-            >
+              Gravatar email</small>
           </div>
           <div className="form-group">
             <input
@@ -77,6 +77,7 @@ const onSubmit = async e  => {
           Already have an account? <Link to='/login'>Sign In</Link>
         </p>
         </Fragment>
-        )}
+        )
+    }
     
-export default Register
+export default connect(null, {setAlert})(Register)
