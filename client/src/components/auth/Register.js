@@ -1,9 +1,12 @@
 import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import {setAlert} from '../../actions/alert'
+import { register } from '../../actions/auth'
+import PropTypes from 'prop-types'
 
-const Register = (props) => {
+
+const Register = ({setAlert, register, isAuthenticated}) => {
     const [formData, setFormData ] = useState({ 
         name: '',
         email: '',
@@ -19,12 +22,16 @@ setFormData({ ...formData, [e.target.name]: e.target.value})
 const onSubmit = async e  => {
   e.preventDefault();
     if(password !== password2) {
-      props.setAlert("Focus, passwords must match.")
+      setAlert("Focus, passwords must match.", 'danger')
     } else {
-      console.log('SUCCESS')
+        register({ name, email, password })
     
     } 
 };
+
+if(isAuthenticated){
+  return <Redirect to='/dashboard' />
+}
 
     return (
     <Fragment>
@@ -37,8 +44,9 @@ const onSubmit = async e  => {
             placeholder="Name" 
             name="name"
             value={name}
-            onChange={e => onChange(e)} 
-             required />
+            onChange={e => onChange(e)}
+            required 
+              />
           </div>
           <div className="form-group">
             <input 
@@ -46,7 +54,9 @@ const onSubmit = async e  => {
               placeholder="Email Address" 
               value={email}
               onChange={e => onChange(e)}
-              name="email" />
+              name="email"
+              required
+               />
             <small className="form-text"
               >This site uses Gravatar so if you want a profile image, use a
               Gravatar email</small>
@@ -79,5 +89,11 @@ const onSubmit = async e  => {
         </Fragment>
         )
     }
-    
-export default connect(null, {setAlert})(Register)
+  
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+}
+
+export default connect(null, {setAlert, register})(Register)

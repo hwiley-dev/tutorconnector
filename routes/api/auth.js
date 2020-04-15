@@ -8,13 +8,13 @@ const { check, validationResult } = require('express-validator/check')
 const User = require('../../models/User')
 const auth = require('../../middleware/auth');
 
-// @route api/auth
-// @desc
-// @access
+// @route GET api/auth
+// @desc Test Route
+// @access Public
 
 router.get('/', auth, async (req,res) =>  {
     try{
-        const user = await User.findById(req.user.id).select('-password');
+        const user = await User.findById(req.user.id).select('-password'); // Removes password from res.user
         res.json(user)
     }catch (err){
         console.error(err.message)
