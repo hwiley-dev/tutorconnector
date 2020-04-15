@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="navbar bg-dark">
     <h1>
       <Link to='/'>
-        <i className="fas fa-pen"/> TutorConnector
+        <i className="fas fa-laptop"/> TutorConnector
       </Link>
     </h1>
 

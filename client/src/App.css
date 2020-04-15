@@ -349,6 +349,13 @@ button {
   text-align: center;
 }
 
+/* Register Page */
+.register {
+  position: relative;
+  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
 /* Profiles Page */
 .profile {
   display: grid;
