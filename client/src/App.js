@@ -34,7 +34,7 @@ const App = () => {
     <section className="container">
     <Alert />
       <Switch>
-        {/* <Route exact path='/profiles/' component={ProfileBrowser} /> */}
+        <Route exact path='/profiles/' component={ProfileBrowser} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/login' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
