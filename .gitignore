@@ -2,5 +2,9 @@ node_modules/
 
 client/node_modules
 
+client/yarn.lock
+
 
 config/default.json
+
+.gitignore
